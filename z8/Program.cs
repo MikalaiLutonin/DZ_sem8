@@ -78,96 +78,96 @@
 
 
 
-// ================== Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// 5 2 6 7
-// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
-
-Console.Clear();
-Console.Write("Задайте количество строк в двумерном массиве: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Задайте количество столбцов в двумерном массиве: ");
-int columns = int.Parse(Console.ReadLine()!);
-Console.WriteLine($"Исходный массив [{rows},{columns}]:\n");
-int[,] array = GetArray(rows, columns, 0, 10);
-PrintArray(array);
-Console.WriteLine();
-int[] sumArray = SumArray(array);
-Console.WriteLine($"\nНаименьшая сумма элементов в {MinIndex(sumArray) + 1}-й строке");       //здесь +1, потому что счет строк начинается с первой, а элементы массива с 0.
-
-int MinIndex(int[] array)                                   //метод нахождения индекса минимального значения в одномерном массиве
-{
-    int min = array[0];
-    int minIndex = 0;
-    for (int i = 0; i < array.Length; i++)
-    {
-        if (array[i] < min)
-        {
-            min = array[i];
-            minIndex = i;
-        }
-    }
-    return minIndex;
-}
-
-int[] SumArray(int[,] array)                                //метод ссумирования значений в строке. Возвращает одномерный массив значений этих сумм строк
-{
-    int[] SumArray = new int[array.GetLength(0)];
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        int summ = 0;
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            summ += array[i, j];
-        }
-        Console.WriteLine($"Сумма {i + 1}-й строки: {summ}");
-        SumArray[i] = summ;
-    }
-    return SumArray;
-}
-
-
-
-
-
-
-
-// // =================== Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// // Например, даны 2 матрицы:
-// // 2 4 | 3 4
-// // 3 2 | 3 3
-// // Результирующая матрица будет:
-// // 18 20
-// // 15 18
+// // ================== Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// // Например, задан массив:
+// // 1 4 7 2
+// // 5 9 2 3
+// // 8 4 2 4
+// // 5 2 6 7
+// // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
 
 // Console.Clear();
-// int rows1 = 2;
-// int columns1 = 2;
-// Console.WriteLine($"Первая матрица [{rows1},{columns1}]:");
-// int[,] matr1 = GetArray(rows1, columns1, 0, 10);
-// PrintArray(matr1);
-// int rows2 = 2;
-// int columns2 = 2;
-// Console.WriteLine($"\nВторая матрица [{rows2},{columns2}]:");
-// int[,] matr2 = GetArray(rows2, columns2, 0, 10);
-// PrintArray(matr2);
-// Console.WriteLine("\nМатрица переумножения равна:");
-// int[,] matr3 = new int[matr1.GetLength(0), matr2.GetLength(1)];
-// matr3 = GetMatr3(matr3);
-// PrintArray(matr3);
+// Console.Write("Задайте количество строк в двумерном массиве: ");
+// int rows = int.Parse(Console.ReadLine()!);
+// Console.Write("Задайте количество столбцов в двумерном массиве: ");
+// int columns = int.Parse(Console.ReadLine()!);
+// Console.WriteLine($"Исходный массив [{rows},{columns}]:\n");
+// int[,] array = GetArray(rows, columns, 0, 10);
+// PrintArray(array);
+// Console.WriteLine();
+// int[] sumArray = SumArray(array);
+// Console.WriteLine($"\nНаименьшая сумма элементов в {MinIndex(sumArray) + 1}-й строке");       //здесь +1, потому что счет строк начинается с первой, а элементы массива с 0.
 
-// int[,] GetMatr3(int[,] array)
+// int MinIndex(int[] array)                                   //метод нахождения индекса минимального значения в одномерном массиве
 // {
-// int x=0, y=0, i=0, j=0, m=0, n=0;
-//     array[x, y] = matr1[i, j] * matr2[m, n] + matr1[i, j + 1] * matr2[m + 1, n];
-//     array[x, y + 1] = matr1[i, j] * matr2[m, n + 1] + matr1[i, j + 1] * matr2[m + 1, n + 1];
-//     array[x + 1, y] = matr1[i + 1, j] * matr2[m, n] + matr1[i + 1, j + 1] * matr2[m + 1, n];
-//     array[x + 1, y + 1] = matr1[i + 1, j] * matr2[m, n + 1] + matr1[i + 1, j + 1] * matr2[m + 1, n + 1];
-// return array;
+//     int min = array[0];
+//     int minIndex = 0;
+//     for (int i = 0; i < array.Length; i++)
+//     {
+//         if (array[i] < min)
+//         {
+//             min = array[i];
+//             minIndex = i;
+//         }
+//     }
+//     return minIndex;
 // }
+
+// int[] SumArray(int[,] array)                                //метод ссумирования значений в строке. Возвращает одномерный массив значений этих сумм строк
+// {
+//     int[] SumArray = new int[array.GetLength(0)];
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         int summ = 0;
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             summ += array[i, j];
+//         }
+//         Console.WriteLine($"Сумма {i + 1}-й строки: {summ}");
+//         SumArray[i] = summ;
+//     }
+//     return SumArray;
+// }
+
+
+
+
+
+
+
+// =================== Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// Например, даны 2 матрицы:
+// 2 4 | 3 4
+// 3 2 | 3 3
+// Результирующая матрица будет:
+// 18 20
+// 15 18
+
+Console.Clear();
+int rows1 = 2;
+int columns1 = 2;
+Console.WriteLine($"Первая матрица [{rows1},{columns1}]:");
+int[,] matr1 = GetArray(rows1, columns1, 0, 10);
+PrintArray(matr1);
+int rows2 = 2;
+int columns2 = 2;
+Console.WriteLine($"\nВторая матрица [{rows2},{columns2}]:");
+int[,] matr2 = GetArray(rows2, columns2, 0, 10);
+PrintArray(matr2);
+Console.WriteLine("\nМатрица переумножения равна:");
+int[,] matr3 = new int[matr1.GetLength(0), matr2.GetLength(1)];
+matr3 = GetMatr3(matr3);
+PrintArray(matr3);
+
+int[,] GetMatr3(int[,] array)
+{
+int x=0, y=0, i=0, j=0, m=0, n=0;
+    array[x, y] = matr1[i, j] * matr2[m, n] + matr1[i, j + 1] * matr2[m + 1, n];
+    array[x, y + 1] = matr1[i, j] * matr2[m, n + 1] + matr1[i, j + 1] * matr2[m + 1, n + 1];
+    array[x + 1, y] = matr1[i + 1, j] * matr2[m, n] + matr1[i + 1, j + 1] * matr2[m + 1, n];
+    array[x + 1, y + 1] = matr1[i + 1, j] * matr2[m, n + 1] + matr1[i + 1, j + 1] * matr2[m + 1, n + 1];
+return array;
+}
 
 
 
