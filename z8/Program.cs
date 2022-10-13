@@ -173,139 +173,139 @@
 
 
 
-// ====================== Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
-// Массив размером 2 x 2 x 2
-// 66(0,0,0) 25(0,1,0)
-// 34(1,0,0) 41(1,1,0)
-// 27(0,0,1) 90(0,1,1)
-// 26(1,0,1) 55(1,1,1)
-
-Console.Clear();
-Console.WriteLine("Трехмерный массив 3x3x3: ");
-int[,,] MyArray = GetArray3(3, 3, 3, 10, 100);
-PrintArray3(MyArray);
-
-bool GetValue(int number, int[,,] array)    //метод нахождения числа в массиве
-{
-    for (int a = 0; a < array.GetLength(0); a++)
-    {
-        for (int b = 0; b < array.GetLength(1); b++)
-        {
-            for (int c = 0; c < array.GetLength(2); c++)
-            {
-                if (number == array[a, b, c])
-                {
-                    return true;
-                }
-            }
-        }
-    }
-    return false;
-}
-
-int[,,] GetArray3(int a, int b, int c, int minValue, int maxValue)          //метод заполнения трехмерного массива неповторяющимися двухзначными числами
-{
-    int[,,] result = new int[a, b, c];   
-    for (int i = 0; i < result.GetLength(0); i++)
-    {
-        for (int j = 0; j < result.GetLength(1); j++)
-        {
-            for (int k = 0; k < result.GetLength(2); k++)
-            {
-            Link1:
-                int random = new Random().Next(minValue, maxValue);
-                GetValue(random, result);
-                if (GetValue(random, result) == true)
-                { goto Link1; }
-                result[i, j, k] = random;
-            }
-        }
-    }
-    return result;
-}
-
-void PrintArray3(int[,,] array)                               //метод вывода трехмерного массива на печать
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            for (int k = 0; k < array.GetLength(2); k++)
-            {
-                 Console.WriteLine($"{array[i, j, k]}({i},{j},{k})");    //построчный вывод массива с индексами
-            }
-        }
-        Console.WriteLine();
-    }
-}
-
-
-
-
-
-
-// // ============== Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-// // Например, на выходе получается вот такой массив:
-// // 01 02 03 04
-// // 12 13 14 05
-// // 11 16 15 06
-// // 10 09 08 07
+// // ====================== Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// // Массив размером 2 x 2 x 2
+// // 66(0,0,0) 25(0,1,0)
+// // 34(1,0,0) 41(1,1,0)
+// // 27(0,0,1) 90(0,1,1)
+// // 26(1,0,1) 55(1,1,1)
 
 // Console.Clear();
-// string[,] array = new string[4, 4];
-// Spiral(array);
-// PrintArrayString(array);
+// Console.WriteLine("Трехмерный массив 3x3x3: ");
+// int[,,] MyArray = GetArray3(3, 3, 3, 10, 100);
+// PrintArray3(MyArray);
 
-// string[,] Spiral(string[,] array)
+// bool GetValue(int number, int[,,] array)    //метод нахождения числа в массиве
 // {
-
-//     for (int j = 0, i = 0, k = 1; j < array.GetLength(1); j++, k++)
+//     for (int a = 0; a < array.GetLength(0); a++)
 //     {
-//         string a = Convert.ToString(k);
-//         array[i, j] = "0" + a;
+//         for (int b = 0; b < array.GetLength(1); b++)
+//         {
+//             for (int c = 0; c < array.GetLength(2); c++)
+//             {
+//                 if (number == array[a, b, c])
+//                 {
+//                     return true;
+//                 }
+//             }
+//         }
 //     }
-
-//     for (int i = 1, j = 3, k = 5; i < array.GetLength(0); i++, k++)
-//     {
-//         string a = Convert.ToString(k);
-//         array[i, j] = "0" + a;
-//     }
-
-//     for (int j = 2, i = 3, k = 8; j >= 0; j--, k++)
-//     {
-//         string a = Convert.ToString(k);
-//         array[i, j] = "0" + a;
-//     }
-
-//     for (int i = 3, j = 0, k = 10; i > 0; i--, k++)
-//     {
-//         string a = Convert.ToString(k);
-//         array[i, j] = a;
-//     }
-
-//     for (int j = 1, i = 1, k = 13; j < 3; j++, k++)
-//     {
-//         string a = Convert.ToString(k);
-//         array[i, j] = a;
-//     }
-
-//     array[2, 2] = "15";
-//     array[2, 1] = "16";
-
-//     return array;
+//     return false;
 // }
 
-// void PrintArrayString(string[,] array)
+// int[,,] GetArray3(int a, int b, int c, int minValue, int maxValue)          //метод заполнения трехмерного массива неповторяющимися двухзначными числами
+// {
+//     int[,,] result = new int[a, b, c];   
+//     for (int i = 0; i < result.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < result.GetLength(1); j++)
+//         {
+//             for (int k = 0; k < result.GetLength(2); k++)
+//             {
+//             Link1:
+//                 int random = new Random().Next(minValue, maxValue);
+//                 GetValue(random, result);
+//                 if (GetValue(random, result) == true)
+//                 { goto Link1; }
+//                 result[i, j, k] = random;
+//             }
+//         }
+//     }
+//     return result;
+// }
+
+// void PrintArray3(int[,,] array)                               //метод вывода трехмерного массива на печать
 // {
 //     for (int i = 0; i < array.GetLength(0); i++)
 //     {
 //         for (int j = 0; j < array.GetLength(1); j++)
 //         {
-//             Console.Write($"{array[i, j]} ");
+//             for (int k = 0; k < array.GetLength(2); k++)
+//             {
+//                  Console.WriteLine($"{array[i, j, k]}({i},{j},{k})");    //построчный вывод массива с индексами
+//             }
 //         }
 //         Console.WriteLine();
 //     }
 // }
+
+
+
+
+
+
+// ============== Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
+Console.Clear();
+string[,] array = new string[4, 4];
+Spiral(array);
+PrintArrayString(array);
+
+string[,] Spiral(string[,] array)
+{
+
+    for (int j = 0, i = 0, k = 1; j < array.GetLength(1); j++, k++)
+    {
+        string a = Convert.ToString(k);
+        array[i, j] = "0" + a;
+    }
+
+    for (int i = 1, j = 3, k = 5; i < array.GetLength(0); i++, k++)
+    {
+        string a = Convert.ToString(k);
+        array[i, j] = "0" + a;
+    }
+
+    for (int j = 2, i = 3, k = 8; j >= 0; j--, k++)
+    {
+        string a = Convert.ToString(k);
+        array[i, j] = "0" + a;
+    }
+
+    for (int i = 3, j = 0, k = 10; i > 0; i--, k++)
+    {
+        string a = Convert.ToString(k);
+        array[i, j] = a;
+    }
+
+    for (int j = 1, i = 1, k = 13; j < 3; j++, k++)
+    {
+        string a = Convert.ToString(k);
+        array[i, j] = a;
+    }
+
+    array[2, 2] = "15";
+    array[2, 1] = "16";
+
+    return array;
+}
+
+void PrintArrayString(string[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
 
 
 
