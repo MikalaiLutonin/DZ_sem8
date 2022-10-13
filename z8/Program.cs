@@ -135,109 +135,109 @@
 
 
 
-// =================== Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
-// Например, даны 2 матрицы:
-// 2 4 | 3 4
-// 3 2 | 3 3
-// Результирующая матрица будет:
-// 18 20
-// 15 18
-
-Console.Clear();
-int rows1 = 2;
-int columns1 = 2;
-Console.WriteLine($"Первая матрица [{rows1},{columns1}]:");
-int[,] matr1 = GetArray(rows1, columns1, 0, 10);
-PrintArray(matr1);
-int rows2 = 2;
-int columns2 = 2;
-Console.WriteLine($"\nВторая матрица [{rows2},{columns2}]:");
-int[,] matr2 = GetArray(rows2, columns2, 0, 10);
-PrintArray(matr2);
-Console.WriteLine("\nМатрица переумножения равна:");
-int[,] matr3 = new int[matr1.GetLength(0), matr2.GetLength(1)];
-matr3 = GetMatr3(matr3);
-PrintArray(matr3);
-
-int[,] GetMatr3(int[,] array)
-{
-int x=0, y=0, i=0, j=0, m=0, n=0;
-    array[x, y] = matr1[i, j] * matr2[m, n] + matr1[i, j + 1] * matr2[m + 1, n];
-    array[x, y + 1] = matr1[i, j] * matr2[m, n + 1] + matr1[i, j + 1] * matr2[m + 1, n + 1];
-    array[x + 1, y] = matr1[i + 1, j] * matr2[m, n] + matr1[i + 1, j + 1] * matr2[m + 1, n];
-    array[x + 1, y + 1] = matr1[i + 1, j] * matr2[m, n + 1] + matr1[i + 1, j + 1] * matr2[m + 1, n + 1];
-return array;
-}
-
-
-
-
-
-// // ====================== Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
-// // Массив размером 2 x 2 x 2
-// // 66(0,0,0) 25(0,1,0)
-// // 34(1,0,0) 41(1,1,0)
-// // 27(0,0,1) 90(0,1,1)
-// // 26(1,0,1) 55(1,1,1)
+// // =================== Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+// // Например, даны 2 матрицы:
+// // 2 4 | 3 4
+// // 3 2 | 3 3
+// // Результирующая матрица будет:
+// // 18 20
+// // 15 18
 
 // Console.Clear();
-// Console.WriteLine("Трехмерный массив 3x3x3: ");
-// int[,,] MyArray = GetArray3(3, 3, 3, 10, 100);
-// PrintArray3(MyArray);
+// int rows1 = 2;
+// int columns1 = 2;
+// Console.WriteLine($"Первая матрица [{rows1},{columns1}]:");
+// int[,] matr1 = GetArray(rows1, columns1, 0, 10);
+// PrintArray(matr1);
+// int rows2 = 2;
+// int columns2 = 2;
+// Console.WriteLine($"\nВторая матрица [{rows2},{columns2}]:");
+// int[,] matr2 = GetArray(rows2, columns2, 0, 10);
+// PrintArray(matr2);
+// Console.WriteLine("\nМатрица переумножения равна:");
+// int[,] matr3 = new int[matr1.GetLength(0), matr2.GetLength(1)];
+// matr3 = GetMatr3(matr3);
+// PrintArray(matr3);
 
-// bool GetValue(int number, int[,,] array)    //метод нахождения числа в массиве
+// int[,] GetMatr3(int[,] array)
 // {
-//     for (int a = 0; a < array.GetLength(0); a++)
-//     {
-//         for (int b = 0; b < array.GetLength(1); b++)
-//         {
-//             for (int c = 0; c < array.GetLength(2); c++)
-//             {
-//                 if (number == array[a, b, c])
-//                 {
-//                     return true;
-//                 }
-//             }
-//         }
-//     }
-//     return false;
+// int x=0, y=0, i=0, j=0, m=0, n=0;
+//     array[x, y] = matr1[i, j] * matr2[m, n] + matr1[i, j + 1] * matr2[m + 1, n];
+//     array[x, y + 1] = matr1[i, j] * matr2[m, n + 1] + matr1[i, j + 1] * matr2[m + 1, n + 1];
+//     array[x + 1, y] = matr1[i + 1, j] * matr2[m, n] + matr1[i + 1, j + 1] * matr2[m + 1, n];
+//     array[x + 1, y + 1] = matr1[i + 1, j] * matr2[m, n + 1] + matr1[i + 1, j + 1] * matr2[m + 1, n + 1];
+// return array;
 // }
 
-// int[,,] GetArray3(int a, int b, int c, int minValue, int maxValue)          //метод заполнения трехмерного массива неповторяющимися двухзначными числами
-// {
-//     int[,,] result = new int[a, b, c];   
-//     for (int i = 0; i < result.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < result.GetLength(1); j++)
-//         {
-//             for (int k = 0; k < result.GetLength(2); k++)
-//             {
-//             Link1:
-//                 int random = new Random().Next(minValue, maxValue);
-//                 GetValue(random, result);
-//                 if (GetValue(random, result) == true)
-//                 { goto Link1; }
-//                 result[i, j, k] = random;
-//             }
-//         }
-//     }
-//     return result;
-// }
 
-// void PrintArray3(int[,,] array)                               //метод вывода трехмерного массива на печать
-// {
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             for (int k = 0; k < array.GetLength(2); k++)
-//             {
-//                  Console.WriteLine($"{array[i, j, k]}({i},{j},{k})");    //построчный вывод массива с индексами
-//             }
-//         }
-//         Console.WriteLine();
-//     }
-// }
+
+
+
+// ====================== Задача 60. Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+Console.Clear();
+Console.WriteLine("Трехмерный массив 3x3x3: ");
+int[,,] MyArray = GetArray3(3, 3, 3, 10, 100);
+PrintArray3(MyArray);
+
+bool GetValue(int number, int[,,] array)    //метод нахождения числа в массиве
+{
+    for (int a = 0; a < array.GetLength(0); a++)
+    {
+        for (int b = 0; b < array.GetLength(1); b++)
+        {
+            for (int c = 0; c < array.GetLength(2); c++)
+            {
+                if (number == array[a, b, c])
+                {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+
+int[,,] GetArray3(int a, int b, int c, int minValue, int maxValue)          //метод заполнения трехмерного массива неповторяющимися двухзначными числами
+{
+    int[,,] result = new int[a, b, c];   
+    for (int i = 0; i < result.GetLength(0); i++)
+    {
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+            for (int k = 0; k < result.GetLength(2); k++)
+            {
+            Link1:
+                int random = new Random().Next(minValue, maxValue);
+                GetValue(random, result);
+                if (GetValue(random, result) == true)
+                { goto Link1; }
+                result[i, j, k] = random;
+            }
+        }
+    }
+    return result;
+}
+
+void PrintArray3(int[,,] array)                               //метод вывода трехмерного массива на печать
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            for (int k = 0; k < array.GetLength(2); k++)
+            {
+                 Console.WriteLine($"{array[i, j, k]}({i},{j},{k})");    //построчный вывод массива с индексами
+            }
+        }
+        Console.WriteLine();
+    }
+}
 
 
 
