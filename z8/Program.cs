@@ -1,47 +1,4 @@
-﻿// =============Дополнительная задача с семинара. Отсортировать нечетные столбцы массива по возрастанию. Вывести массив изначальный и массив с отсортированными нечетными столбцами
-
-Console.Clear();
-Console.WriteLine("Задайте исходный массив:");
-Console.Write("Введите количество строк в двумерном массиве: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Введите количество столбцов в двумерном массиве: ");
-int columns = int.Parse(Console.ReadLine()!);
-int[,] array = GetArray(rows, columns, 0, 10);
-PrintArray(array);
-Console.WriteLine();
-SortMinToMax(array);
-PrintArray(array);
-
-void SortMinToMax(int[,] array)                            //метод сортировки двумерного массива по возрастанию (нечетные стоблцы)
-{
-    for (int j = 1; j < array.GetLength(1); j=j+2)
-    {
-        for (int i = 0; i < array.GetLength(0) - 1; i++)
-        {
-            int minPosition = i;
-            for (int k = i + 1; k < array.GetLength(0); k++)
-            {
-                if (array[k,j] < array[minPosition,j]) minPosition = k;
-            }
-            int temporary = array[i,j];
-            array[i,j] = array[minPosition,j];
-            array[minPosition,j] = temporary;
-        }
-    }
-}
-
-
-
-
-// // ================ Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-// // Например, задан массив:
-// // 1 4 7 2
-// // 5 9 2 3
-// // 8 4 2 4
-// // В итоге получается вот такой массив:
-// // 7 4 2 1
-// // 9 5 3 2
-// // 8 4 4 2
+﻿// // =============Дополнительная задача с семинара. Отсортировать нечетные столбцы массива по возрастанию. Вывести массив изначальный и массив с отсортированными нечетными столбцами
 
 // Console.Clear();
 // Console.WriteLine("Задайте исходный массив:");
@@ -52,26 +9,69 @@ void SortMinToMax(int[,] array)                            //метод сорт
 // int[,] array = GetArray(rows, columns, 0, 10);
 // PrintArray(array);
 // Console.WriteLine();
-// SortMaxToMin(array);
+// SortMinToMax(array);
 // PrintArray(array);
 
-// void SortMaxToMin(int[,] array)                            //метод сортировки двумерного массива по убыванию (строки)
+// void SortMinToMax(int[,] array)                            //метод сортировки двумерного массива по возрастанию (нечетные стоблцы)
 // {
-//     for (int i = 0; i < array.GetLength(0); i++)
+//     for (int j = 1; j < array.GetLength(1); j=j+2)
 //     {
-//         for (int j = 0; j < array.GetLength(1) - 1; j++)
+//         for (int i = 0; i < array.GetLength(0) - 1; i++)
 //         {
-//             int maxPosition = j;
-//                 for (int k = j + 1; k < array.GetLength(1); k++)
-//                 {
-//                     if (array[i, k] > array[i, maxPosition]) maxPosition = k;
-//                 }
-//             int temporary = array[i, j];
-//             array[i, j] = array[i, maxPosition];
-//             array[i, maxPosition] = temporary;
+//             int minPosition = i;
+//             for (int k = i + 1; k < array.GetLength(0); k++)
+//             {
+//                 if (array[k,j] < array[minPosition,j]) minPosition = k;
+//             }
+//             int temporary = array[i,j];
+//             array[i,j] = array[minPosition,j];
+//             array[minPosition,j] = temporary;
 //         }
 //     }
 // }
+
+
+
+
+// ================ Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// В итоге получается вот такой массив:
+// 7 4 2 1
+// 9 5 3 2
+// 8 4 4 2
+
+Console.Clear();
+Console.WriteLine("Задайте исходный массив:");
+Console.Write("Введите количество строк в двумерном массиве: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Введите количество столбцов в двумерном массиве: ");
+int columns = int.Parse(Console.ReadLine()!);
+int[,] array = GetArray(rows, columns, 0, 10);
+PrintArray(array);
+Console.WriteLine();
+SortMaxToMin(array);
+PrintArray(array);
+
+void SortMaxToMin(int[,] array)                            //метод сортировки двумерного массива по убыванию (строки)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1) - 1; j++)
+        {
+            int maxPosition = j;
+                for (int k = j + 1; k < array.GetLength(1); k++)
+                {
+                    if (array[i, k] > array[i, maxPosition]) maxPosition = k;
+                }
+            int temporary = array[i, j];
+            array[i, j] = array[i, maxPosition];
+            array[i, maxPosition] = temporary;
+        }
+    }
+}
 
 
 
