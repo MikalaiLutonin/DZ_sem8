@@ -33,101 +33,101 @@
 
 
 
-// ================ Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// В итоге получается вот такой массив:
-// 7 4 2 1
-// 9 5 3 2
-// 8 4 4 2
-
-Console.Clear();
-Console.WriteLine("Задайте исходный массив:");
-Console.Write("Введите количество строк в двумерном массиве: ");
-int rows = int.Parse(Console.ReadLine()!);
-Console.Write("Введите количество столбцов в двумерном массиве: ");
-int columns = int.Parse(Console.ReadLine()!);
-int[,] array = GetArray(rows, columns, 0, 10);
-PrintArray(array);
-Console.WriteLine();
-SortMaxToMin(array);
-PrintArray(array);
-
-void SortMaxToMin(int[,] array)                            //метод сортировки двумерного массива по убыванию (строки)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1) - 1; j++)
-        {
-            int maxPosition = j;
-                for (int k = j + 1; k < array.GetLength(1); k++)
-                {
-                    if (array[i, k] > array[i, maxPosition]) maxPosition = k;
-                }
-            int temporary = array[i, j];
-            array[i, j] = array[i, maxPosition];
-            array[i, maxPosition] = temporary;
-        }
-    }
-}
-
-
-
-
-
-
-// // ================== Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// // ================ Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 // // Например, задан массив:
 // // 1 4 7 2
 // // 5 9 2 3
 // // 8 4 2 4
-// // 5 2 6 7
-// // Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+// // В итоге получается вот такой массив:
+// // 7 4 2 1
+// // 9 5 3 2
+// // 8 4 4 2
 
 // Console.Clear();
-// Console.Write("Задайте количество строк в двумерном массиве: ");
+// Console.WriteLine("Задайте исходный массив:");
+// Console.Write("Введите количество строк в двумерном массиве: ");
 // int rows = int.Parse(Console.ReadLine()!);
-// Console.Write("Задайте количество столбцов в двумерном массиве: ");
+// Console.Write("Введите количество столбцов в двумерном массиве: ");
 // int columns = int.Parse(Console.ReadLine()!);
-// Console.WriteLine($"Исходный массив [{rows},{columns}]:\n");
 // int[,] array = GetArray(rows, columns, 0, 10);
 // PrintArray(array);
 // Console.WriteLine();
-// int[] sumArray = SumArray(array);
-// Console.WriteLine($"\nНаименьшая сумма элементов в {MinIndex(sumArray) + 1}-й строке");       //здесь +1, потому что счет строк начинается с первой, а элементы массива с 0.
+// SortMaxToMin(array);
+// PrintArray(array);
 
-// int MinIndex(int[] array)                                   //метод нахождения индекса минимального значения в одномерном массиве
+// void SortMaxToMin(int[,] array)                            //метод сортировки двумерного массива по убыванию (строки)
 // {
-//     int min = array[0];
-//     int minIndex = 0;
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         if (array[i] < min)
-//         {
-//             min = array[i];
-//             minIndex = i;
-//         }
-//     }
-//     return minIndex;
-// }
-
-// int[] SumArray(int[,] array)                                //метод ссумирования значений в строке. Возвращает одномерный массив значений этих сумм строк
-// {
-//     int[] SumArray = new int[array.GetLength(0)];
 //     for (int i = 0; i < array.GetLength(0); i++)
 //     {
-//         int summ = 0;
-//         for (int j = 0; j < array.GetLength(1); j++)
+//         for (int j = 0; j < array.GetLength(1) - 1; j++)
 //         {
-//             summ += array[i, j];
+//             int maxPosition = j;
+//                 for (int k = j + 1; k < array.GetLength(1); k++)
+//                 {
+//                     if (array[i, k] > array[i, maxPosition]) maxPosition = k;
+//                 }
+//             int temporary = array[i, j];
+//             array[i, j] = array[i, maxPosition];
+//             array[i, maxPosition] = temporary;
 //         }
-//         Console.WriteLine($"Сумма {i + 1}-й строки: {summ}");
-//         SumArray[i] = summ;
 //     }
-//     return SumArray;
 // }
+
+
+
+
+
+
+// ================== Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// 5 2 6 7
+// Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+
+Console.Clear();
+Console.Write("Задайте количество строк в двумерном массиве: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Задайте количество столбцов в двумерном массиве: ");
+int columns = int.Parse(Console.ReadLine()!);
+Console.WriteLine($"Исходный массив [{rows},{columns}]:\n");
+int[,] array = GetArray(rows, columns, 0, 10);
+PrintArray(array);
+Console.WriteLine();
+int[] sumArray = SumArray(array);
+Console.WriteLine($"\nНаименьшая сумма элементов в {MinIndex(sumArray) + 1}-й строке");       //здесь +1, потому что счет строк начинается с первой, а элементы массива с 0.
+
+int MinIndex(int[] array)                                   //метод нахождения индекса минимального значения в одномерном массиве
+{
+    int min = array[0];
+    int minIndex = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] < min)
+        {
+            min = array[i];
+            minIndex = i;
+        }
+    }
+    return minIndex;
+}
+
+int[] SumArray(int[,] array)                                //метод ссумирования значений в строке. Возвращает одномерный массив значений этих сумм строк
+{
+    int[] SumArray = new int[array.GetLength(0)];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        int summ = 0;
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            summ += array[i, j];
+        }
+        Console.WriteLine($"Сумма {i + 1}-й строки: {summ}");
+        SumArray[i] = summ;
+    }
+    return SumArray;
+}
 
 
 
